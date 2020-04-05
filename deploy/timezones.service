@@ -1,0 +1,19 @@
+# /etc/systemd/system/timezones.service
+[Unit]
+Description=My Webapp Java REST Service
+After=syslog.target
+
+[Service]
+User=alexandra
+# The configuration file application.properties should be here:
+#change this to your workspace
+WorkingDirectory=/etc/lineate-bench-timezones/
+#path to executable.
+#executable is a bash script which calls jar file
+ExecStart=/etc/lineate-bench-timezones/timezones.sh
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+[Install]
+WantedBy=multi-user.target
